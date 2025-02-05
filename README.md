@@ -14,9 +14,9 @@ Where `???` is replace by a acct-URI.
 
 For example:
 
-* `https://example.com/.well-known/acct-cache?resource=@reiver@mastodon.social`
-* `https://example.com/.well-known/acct-icon?resource=@reiver@mastodon.social`
-* `https://example.com/.well-known/acct-image?resource=@reiver@mastodon.social`
+* `https://example.com/.well-known/acct-cache?resource=acct:reiver@mastodon.social`
+* `https://example.com/.well-known/acct-icon?resource=acct:reiver@mastodon.social`
+* `https://example.com/.well-known/acct-image?resource=acct:reiver@mastodon.social`
 
 ### acct-cache
 
