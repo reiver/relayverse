@@ -44,6 +44,16 @@ For example:
 <img src="https://example.com/.well-known/acct-image?resource=acct:reiver@mastodon.social" />
 ```
 
+## Fediverse ID
+
+A **Fediverse ID** (i.e., **Fediverse Address**), such as:
+
+`@reiver@mastodon.social`
+
+Can be turned into an acct-URI — by replacing the first `@` with `acct:`, as in:
+
+`acct:reiver@mastodon.social`
+
 ## Author
 
 Software **relayverse** was written by [Charles Iliya Krempeaux](http://reiver.link)
