@@ -27,12 +27,22 @@ The `acct-cache` style URL returns the (cached) activity-JSON (`application/acti
 The `acct-icon` style URL redirects to the icon-url for the account, as provided in (cached) activity-JSON (`application/activity+json`) file.
 
 You can put this type of URL into an HTML `<img>` element.
+For example:
+
+```html
+<img src="https://example.com/.well-known/acct-icon?resource=acct:reiver@mastodon.social" />
+```
 
 ### acct-image
 
 The `acct-image` style URL redirects to the image-url for the account, as provided in (cached) activity-JSON (`application/activity+json`) file.
 
 You can put this type of URL into an HTML `<img>` element.
+For example:
+
+```html
+<img src="https://example.com/.well-known/acct-image?resource=acct:reiver@mastodon.social" />
+```
 
 ## Author
 
