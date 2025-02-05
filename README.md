@@ -54,6 +54,35 @@ Can be turned into an acct-URI — by replacing the first `@` with `acct:`, as i
 
 `acct:reiver@mastodon.social`
 
+## Configuration
+
+There are 3 environment variables that can be used to configure **relayverse**:
+
+* `CACHE_GC_SLEEP`
+* `CACHE_MIN`
+* `PORT`
+
+### `CACHE_GC_SLEEP`
+
+`CACHE_GC_SLEEP` sets the minimum duration that the cache garbage-collector sleeps for before it cleans-up again.
+For example:
+
+`CACHE_GC_SLEEP=1h20m30s relayverse`
+
+### `CACHE_MIN`
+
+`CACHE_MIN` sets the minimum duration that things are cached for.
+For example:
+
+`CACHE_MIN=10m20s relayverse`
+
+### `PORT`
+
+`PORT` sets the TCP-port used by the HTTP server.
+For example:
+
+`PORT=9090 relayverse`
+
 ## Author
 
 Software **relayverse** was written by [Charles Iliya Krempeaux](http://reiver.link)
