@@ -7,6 +7,7 @@ import (
 	"net/url"
 
 	"github.com/reiver/go-http400"
+	"github.com/reiver/go-http405"
 	"github.com/reiver/go-http500"
 
 	"github.com/reiver/relayverse/srv/cache"
@@ -81,8 +82,7 @@ func serveHTTP(responsewriter http.ResponseWriter, request *http.Request) {
 		serveGET(responsewriter, request, resource)
 		return
 	default:
-		const code int = http.StatusMethodNotAllowed
-		http.Error(responsewriter, http.StatusText(code), code)
+		http405.MethodNotAllowed(responsewriter, request, http.MethodGet)
 		log.Errorf("method %q not allowed", request.Method)
 		return
 	}
