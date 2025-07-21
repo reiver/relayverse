@@ -18,5 +18,5 @@ github.com/reiver/go-pathmux v0.0.0-20250113184313-b773d1ae8cb7 h1:LczWwFGEC7C+N
 github.com/reiver/go-pathmux v0.0.0-20250113184313-b773d1ae8cb7/go.mod h1:skftYndyTOU0cNVp491NSoiBJj96eABC2i8ipPVqRYU=
 github.com/reiver/go-reg v0.0.0-20250205002346-93a5107a6a54 h1:3RXToT4ME+wwxa7FkZKFsLOTmxWj/5QWXemN1cFk56E=
 github.com/reiver/go-reg v0.0.0-20250205002346-93a5107a6a54/go.mod h1:P4MhBoVQLOdhisU6M3f2DvbbNBueHw3Y+n4V/Q7xX9Q=
-github.com/reiver/go-tmp v0.0.0-20250204233456-63671659cfeb h1:/0Nj5HTLs5toTqsUy9YXfG0q0Up821kgtB2bdLjnZu8=
-github.com/reiver/go-tmp v0.0.0-20250204233456-63671659cfeb/go.mod h1:TujA2gyUCKNBZWH2KObh0pHtBaqy64h7m8J3kvrL6ow=
+github.com/reiver/go-tmp v0.0.0-20250721224019-8a616ff22458 h1:RT7PiVLAPwuCUzoKZZi07RPxWsjanXgyO3gTsJeAzjM=
+github.com/reiver/go-tmp v0.0.0-20250721224019-8a616ff22458/go.mod h1:TujA2gyUCKNBZWH2KObh0pHtBaqy64h7m8J3kvrL6ow=

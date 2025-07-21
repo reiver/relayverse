@@ -8,7 +8,7 @@ require (
 	github.com/reiver/go-path v0.0.0-20240327181650-5f2ee05890d8
 	github.com/reiver/go-pathmux v0.0.0-20250113184313-b773d1ae8cb7
 	github.com/reiver/go-reg v0.0.0-20250205002346-93a5107a6a54
-	github.com/reiver/go-tmp v0.0.0-20250204233456-63671659cfeb
+	github.com/reiver/go-tmp v0.0.0-20250721224019-8a616ff22458
 )
 
 require (
