@@ -10,10 +10,12 @@ import (
 	"github.com/reiver/relayverse/srv/log"
 )
 
-
-
 func init() {
 	go garbageCollector()
+}
+
+func whenCleanUp(temporal tmp.Temporal[[]byte]) bool {
+	return temporal.Optional().IsNothing()
 }
 
 func garbageCollector() {
@@ -31,7 +33,6 @@ func garbageCollector() {
 		cleanUp()
 		log.Debug("clean-up ENDED")
 	}
-
 }
 
 func cleanUp() {
@@ -39,12 +40,8 @@ func cleanUp() {
 	log := logsrv.Prefix("cachesrv-clean-up").Begin()
 	defer log.End()
 
-	var names []string
-	{
-		cache.For(func(name string, _ tmp.Temporal[[]byte]){
-			names = append(names, name)
-		})
-	}
+	var names []string = Names()
+//@TODO: what happens if "names" is very big? - maybe need a better approach.
 	log.Debugf("number of names: %d", len(names))
 	if length := len(names); 0 < length && length < 14 {
 		log.Debugf("names: %+v", names)

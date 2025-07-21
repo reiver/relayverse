@@ -9,10 +9,6 @@ import (
 
 var cache reg.Registry[tmp.Temporal[[]byte]]
 
-func whenCleanUp(temporal tmp.Temporal[[]byte]) bool {
-	return temporal.Optional().IsNothing()
-}
-
 func Get(name string) ([]byte, bool) {
 	temporal, found := cache.Get(name)
 	if !found {
@@ -21,6 +17,14 @@ func Get(name string) ([]byte, bool) {
 	}
 
 	return temporal.Optional().Get()
+}
+
+func Names() (names []string) {
+	cache.For(func(name string, _ tmp.Temporal[[]byte]){
+		names = append(names, name)
+	})
+
+	return names
 }
 
 func Set(name string, value []byte, until time.Time) ([]byte, bool) {
