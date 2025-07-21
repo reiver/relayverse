@@ -6,6 +6,9 @@ import (
 	"net/http"
 	"net/url"
 
+	"github.com/reiver/go-http400"
+	"github.com/reiver/go-http500"
+
 	"github.com/reiver/relayverse/srv/cache"
 	"github.com/reiver/relayverse/srv/http"
 	"github.com/reiver/relayverse/srv/log"
@@ -30,8 +33,7 @@ func serveHTTP(responsewriter http.ResponseWriter, request *http.Request) {
 		return
 	}
 	if nil == request {
-		const code int = http.StatusInternalServerError
-		http.Error(responsewriter, http.StatusText(code), code)
+		http500.InternalServerError(responsewriter, request)
 		log.Error("nil http-request")
 		return
 	}
@@ -40,16 +42,14 @@ func serveHTTP(responsewriter http.ResponseWriter, request *http.Request) {
 	{
 		var httpRequestURL *url.URL = request.URL
 		if nil == httpRequestURL {
-			const code int = http.StatusInternalServerError
-			http.Error(responsewriter, http.StatusText(code), code)
+			http500.InternalServerError(responsewriter, request)
 			log.Error("nil http-request-url")
 			return
 		}
 
 		queryValues = httpRequestURL.Query()
 		if nil == queryValues {
-			const code int = http.StatusBadRequest
-			http.Error(responsewriter, http.StatusText(code), code)
+			http400.BadRequest(responsewriter, request)
 			log.Error("empty http-request query")
 			return
 		}
@@ -61,14 +61,12 @@ func serveHTTP(responsewriter http.ResponseWriter, request *http.Request) {
 		var found bool
 		resources, found = queryValues["resource"]
 		if !found {
-			const code int = http.StatusBadRequest
-			http.Error(responsewriter, http.StatusText(code), code)
+			http400.BadRequest(responsewriter, request)
 			log.Error("resource not provided in acct-icon request")
 			return
 		}
 		if 1 != len(resources) {
-			const code int = http.StatusBadRequest
-			http.Error(responsewriter, http.StatusText(code), code)
+			http400.BadRequest(responsewriter, request)
 			log.Error("too many resources provided in acct-icon request")
 			return
 		}
@@ -100,8 +98,7 @@ func serveGET(responsewriter http.ResponseWriter, request *http.Request, resourc
 		return
 	}
 	if nil == request {
-		const code int = http.StatusInternalServerError
-		http.Error(responsewriter, http.StatusText(code), code)
+		http500.InternalServerError(responsewriter, request)
 		log.Error("nil http-request")
 		return
 	}
